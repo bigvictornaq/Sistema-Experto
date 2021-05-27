@@ -6,7 +6,7 @@ symptom_map = {}
 d_desc_map = {}
 d_treatment_map = {}
 
-result = ['yes','no','no','yes','no','no','yes','no','yes','no','yes','no','yes']
+result = ['no','yes','no','yes','yes','yes','no','no','no','no','yes','no','yes']
 
 def preprocess():
 	global diseases_list,diseases_symptoms,symptom_map,d_desc_map,d_treatment_map
