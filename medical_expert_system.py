@@ -6,6 +6,8 @@ symptom_map = {}
 d_desc_map = {}
 d_treatment_map = {}
 
+result = ['yes','no','no','yes','no','no','yes','no','yes','no','yes','no','yes']
+
 def preprocess():
 	global diseases_list,diseases_symptoms,symptom_map,d_desc_map,d_treatment_map
 	diseases = open("diseases.txt")
@@ -42,6 +44,9 @@ def get_details(disease):
 def get_treatments(disease):
 	return d_treatment_map[disease]
 
+def get_result_question(nrusult):
+	return result[nrusult]
+
 def if_not_matched(disease):
 		print("")
 		id_disease = disease
@@ -69,55 +74,55 @@ class Greetings(KnowledgeEngine):
 
 	@Rule(Fact(action='find_disease'), NOT(Fact(headache=W())),salience = 1)
 	def symptom_0(self):
-		self.declare(Fact(headache=input("headache: ")))
+		self.declare(Fact(headache=get_result_question(0)))
 
 	@Rule(Fact(action='find_disease'), NOT(Fact(back_pain=W())),salience = 1)
 	def symptom_1(self):
-		self.declare(Fact(back_pain=input("back pain: ")))
+		self.declare(Fact(back_pain=get_result_question(1)))
 
 	@Rule(Fact(action='find_disease'), NOT(Fact(chest_pain=W())),salience = 1)
 	def symptom_2(self):
-		self.declare(Fact(chest_pain=input("chest pain: ")))
+		self.declare(Fact(chest_pain=get_result_question(2)))
 
 	@Rule(Fact(action='find_disease'), NOT(Fact(cough=W())),salience = 1)
 	def symptom_3(self):
-		self.declare(Fact(cough=input("cough: ")))
+		self.declare(Fact(cough=get_result_question(3)))
 
 	@Rule(Fact(action='find_disease'), NOT(Fact(fainting=W())),salience = 1)
 	def symptom_4(self):
-		self.declare(Fact(fainting=input("fainting: ")))
+		self.declare(Fact(fainting=get_result_question(4)))
 
 	@Rule(Fact(action='find_disease'), NOT(Fact(fatigue=W())),salience = 1)
 	def symptom_5(self):
-		self.declare(Fact(fatigue=input("fatigue: ")))
+		self.declare(Fact(fatigue=get_result_question(5)))
 	 
 	@Rule(Fact(action='find_disease'), NOT(Fact(sunken_eyes=W())),salience = 1)
 	def symptom_6(self):
-		self.declare(Fact(sunken_eyes=input("sunken eyes: ")))
+		self.declare(Fact(sunken_eyes=get_result_question(6)))
 	
 	@Rule(Fact(action='find_disease'), NOT(Fact(low_body_temp=W())),salience = 1)
 	def symptom_7(self):
-		self.declare(Fact(low_body_temp=input("low body temperature: ")))
+		self.declare(Fact(low_body_temp=get_result_question(7)))
 	
 	@Rule(Fact(action='find_disease'), NOT(Fact(restlessness=W())),salience = 1)
 	def symptom_8(self):
-		self.declare(Fact(restlessness=input("restlessness: ")))
+		self.declare(Fact(restlessness=get_result_question(8)))
 	
 	@Rule(Fact(action='find_disease'), NOT(Fact(sore_throat=W())),salience = 1)
 	def symptom_9(self):
-		self.declare(Fact(sore_throat=input("sore throat: ")))
+		self.declare(Fact(sore_throat=get_result_question(9)))
 	
 	@Rule(Fact(action='find_disease'), NOT(Fact(fever=W())),salience = 1)
 	def symptom_10(self):
-		self.declare(Fact(fever=input("fever: ")))
+		self.declare(Fact(fever=get_result_question(10)))
 
 	@Rule(Fact(action='find_disease'), NOT(Fact(nausea=W())),salience = 1)
 	def symptom_11(self):
-		self.declare(Fact(nausea=input("Nausea: ")))
+		self.declare(Fact(nausea=get_result_question(11)))
 
 	@Rule(Fact(action='find_disease'), NOT(Fact(blurred_vision=W())),salience = 1)
 	def symptom_12(self):
-		self.declare(Fact(blurred_vision=input("blurred_vision: ")))
+		self.declare(Fact(blurred_vision=get_result_question(12)))
 
 	@Rule(Fact(action='find_disease'),Fact(headache="no"),Fact(back_pain="no"),Fact(chest_pain="no"),Fact(cough="no"),Fact(fainting="no"),Fact(sore_throat="no"),Fact(fatigue="yes"),Fact(restlessness="no"),Fact(low_body_temp="no"),Fact(fever="yes"),Fact(sunken_eyes="no"),Fact(nausea="yes"),Fact(blurred_vision="no"))
 	def disease_0(self):
