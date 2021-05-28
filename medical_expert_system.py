@@ -6,7 +6,14 @@ symptom_map = {}
 d_desc_map = {}
 d_treatment_map = {}
 
-result = ['no','yes','no','yes','yes','yes','no','no','no','no','yes','no','yes']
+result = []
+
+doctorsss =[]
+
+def nelson_semedo(nusss):
+	doctorsss.append(nusss)
+		
+	
 
 def preprocess():
 	global diseases_list,diseases_symptoms,symptom_map,d_desc_map,d_treatment_map
@@ -44,8 +51,11 @@ def get_details(disease):
 def get_treatments(disease):
 	return d_treatment_map[disease]
 
+
 def get_result_question(nrusult):
-	return result[nrusult]
+	print('nelson semedo',nrusult)
+	print(len(result[0]))
+	return result[0][nrusult]
 
 def if_not_matched(disease):
 		print("")
@@ -62,6 +72,10 @@ def if_not_matched(disease):
 # @my_decorator is just a way of saying just_some_function = my_decorator(just_some_function)
 #def identify_disease(headache, back_pain, chest_pain, cough, fainting, sore_throat, fatigue, restlessness,low_body_temp ,fever,sunken_eyes):
 class Greetings(KnowledgeEngine):
+	
+	
+
+	
 	@DefFacts()
 	def _initial_action(self):
 		print("")
@@ -182,13 +196,18 @@ class Greetings(KnowledgeEngine):
 		id_disease = disease
 		disease_details = get_details(id_disease)
 		treatments = get_treatments(id_disease)
+		rojo = [id_disease,disease_details,treatments]
+		nelson_semedo("hola")
 		print("")
 		print("The most probable disease that you have is %s\n" %(id_disease))
 		print("A short description of the disease is given below :\n")
 		print(disease_details+"\n")
 		print("The common medications and procedures suggested by other real doctors are: \n")
 		print(treatments+"\n")
-
+	
+	
+	
+		
 	@Rule(Fact(action='find_disease'),
 		  Fact(headache=MATCH.headache),
 		  Fact(back_pain=MATCH.back_pain),
@@ -219,15 +238,30 @@ class Greetings(KnowledgeEngine):
 				max_count = count
 				max_disease = val
 		if_not_matched(max_disease)
+	
 
 
-if __name__ == "__main__":
+
+def sistemita(user_ans):
+	print(user_ans)
 	preprocess()
+	result.append(user_ans)
 	engine = Greetings()
-	while(1):
-		engine.reset()  # Prepare the engine for the execution.
-		engine.run()  # Run it!
-		print("Would you like to diagnose some other symptoms?")
-		if input() == "no":
-			exit()
-		#print(engine.facts)
+	engine.reset()  # Prepare the engine for the execution.
+	engine.run()  # Run it!
+	print(engine.facts)
+	 
+
+
+
+
+
+
+#if __name__ == "__main__":
+#	preprocess()
+#	engine = Greetings()
+#		engine.run()  # Run it!
+#		print("Would you like to diagnose some other symptoms?")
+#		if input() == "no":
+#			exit()
+#		#print(engine.facts)

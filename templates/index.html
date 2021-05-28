@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS Quiz</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='styles/styles.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Bahiana|Barrio" rel="stylesheet">
+</head>
+
+<body>
+    <h1>The <span id="header">RANDOM</span> Quiz</h1>
+    <div class="quiz-container">
+        <div id="quiz"></div>
+    </div>
+    <div id="progress-wrap">
+        <div id="progress-bar"></div>
+    </div>
+    <button id="previous">Previous Question</button>
+    <button id="next">Next Question</button>
+    <button id="submit">Submit</button>
+    <div id="results"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="{{url_for('static',filename='js/main.js')}}"></script>
+</body>
+
+</html>
