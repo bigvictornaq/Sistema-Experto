@@ -1,17 +1,22 @@
+:root{
+    --backgorund-bg-color:#274472;
+    --font-bg-color:#C3E0E5;
+}
+
 body{
     font-size: 20px;
     font-family: sans-serif;
     color: #333;
     text-align: center;
     font-family: "Bahiana", sans-serif;
-    background-color: rgb(216, 80, 1);
+    background-color: var(--backgorund-bg-color);
 }
 
 h1 {
     display: flex;
     flex-direction: column;
     font-size: 50px;
-    color: rgb(255, 208, 0);
+    color: var(--font-bg-color);
 }
 
 #header {
@@ -30,7 +35,7 @@ h1 {
     font-size: 50px;
     font-weight: bold;
     margin-top: 25px;
-    color: rgb(255, 208, 0)
+    color: var(--font-bg-color)
 }
 
 .choices {
@@ -40,7 +45,7 @@ h1 {
     margin: 0 auto;
     width: 100%;
     margin-top: 60px;
-    color: rgb(255, 208, 0);
+    color: var(--font-bg-color);
 }
 
 label {
@@ -64,18 +69,18 @@ label input {
     height: 25px;
     width: 25px;
     border-radius: 50%;
-    border: 2px solid rgb(255, 208, 0);
-    background-color: rgb(216, 80, 1);
+    border: 2px solid var(--font-bg-color);
+    background-color: var(--backgorund-bg-color);
     transition: all 0.5s linear;
 }
 
 .customRadio:hover {
-    background-color: rgb(255, 208, 0);
+    background-color: var(--font-bg-color);
 }
 
 input:checked ~ .customRadio {
-    border: 2px solid rgb(255, 208, 0);
-    background-color: rgb(216, 80, 1);
+    border: 2px solid var(--font-bg-color);
+    background-color: var(--backgorund-bg-color);
 }
 
 /* Style checkmark */
@@ -88,8 +93,8 @@ label .customRadio::after {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    border: solid rgb(255, 208, 0);
-    background-color: rgb(255, 208, 0);
+    border: solid var(--font-bg-color);
+    background-color: var(--font-bg-color);
     -webkit-transition: all 1s linear;
     transition: all 0.3s linear;
 }
@@ -101,7 +106,7 @@ input:checked ~ .customRadio::after {
 
 #progress-wrap {
     position: relative;
-    border: 3px solid rgb(255, 208, 0);
+    border: 3px solid var(--font-bg-color);
     width: 45%;
     height: 10px;
     border-radius: 20px;
@@ -112,7 +117,7 @@ input:checked ~ .customRadio::after {
     position: absolute;
     width: 0%;
     height: 100%;
-    background-color: rgb(255, 208, 0);
+    background-color: var(--font-bg-color);
     border-radius: 20px;
     top: 0;
     bottom: 0;
@@ -122,8 +127,8 @@ input:checked ~ .customRadio::after {
 button{
     font-family: "Bahiana",sans-serif;
     font-size: 20px;
-    background-color: rgb(255, 208, 0);
-    color: rgb(216, 80, 1);
+    background-color: var(--font-bg-color);
+    color: var(--backgorund-bg-color);
     border: 0px;
     border-radius: 3px;
     padding: 20px;
@@ -148,7 +153,7 @@ button:active {
 
 #results {
     font-size: 25px;
-    color: rgb(255, 208, 0);
+    color: var(--font-bg-color);
 }
 
 /* CSS positioning to make the slides sit as layers on top of one another 

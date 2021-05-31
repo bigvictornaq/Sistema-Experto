@@ -43,8 +43,10 @@ Paquete Utilizado
 
  Uso
 -----------
-	pip install -r requirements.txt
-	python medical_expert_system.py
+	>pip install -r requirements.txt
+	>$env:FLASK_APP = "pixie_expert"
+	>$env:FLASK_ENV = "development"
+	>flask run
 
 Responda las preguntas en la consola de la mejor manera que sepa. 
 

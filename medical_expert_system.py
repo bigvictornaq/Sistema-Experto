@@ -1,4 +1,5 @@
 from experta import *
+import json
 
 diseases_list = []
 diseases_symptoms = []
@@ -196,17 +197,26 @@ class Greetings(KnowledgeEngine):
 		id_disease = disease
 		disease_details = get_details(id_disease)
 		treatments = get_treatments(id_disease)
-		rojo = [id_disease,disease_details,treatments]
-		nelson_semedo("hola")
-		print("")
-		print("The most probable disease that you have is %s\n" %(id_disease))
-		print("A short description of the disease is given below :\n")
-		print(disease_details+"\n")
-		print("The common medications and procedures suggested by other real doctors are: \n")
-		print(treatments+"\n")
+		rojo = {}
+		rojo['data'] = []
+		rojo['data'].append({
+			'Title':"The most probable disease that you have is %s\n" %(id_disease),
+			'subtitle':"A short description of the disease is given below :\n",
+			'info':disease_details,
+			'end':'The common medications and procedures suggested by other real doctors are: \n' + treatments
+		})
+		with open('gen/data.txt', 'w') as outfile:
+			json.dump(rojo,outfile)
+			nelson_semedo("hola")
+			print("")
+			print("The most probable disease that you have is %s\n" %(id_disease))
+			print("A short description of the disease is given below :\n")
+			print(disease_details+"\n")
+			print("The common medications and procedures suggested by other real doctors are: \n")
+			print(treatments+"\n")
 	
 	
-	
+	#gen
 		
 	@Rule(Fact(action='find_disease'),
 		  Fact(headache=MATCH.headache),
@@ -249,7 +259,6 @@ def sistemita(user_ans):
 	engine = Greetings()
 	engine.reset()  # Prepare the engine for the execution.
 	engine.run()  # Run it!
-	print(engine.facts)
 	 
 
 
