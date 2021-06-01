@@ -27,7 +27,7 @@ Se debe de contestar las preguntas de la mejor manera posible
 ---
 >Resultado
 
-![home](img\result.jpg)
+![home](https://github.com/bigvictornaq/Sistema-Experto/blob/master_pixie/img/result.jpg?raw=true)
 
 
 Aviso
