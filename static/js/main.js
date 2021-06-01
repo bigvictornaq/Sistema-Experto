@@ -183,7 +183,7 @@ function results(){
     $.post("/receiver",{
         javascript_data: JSON.stringify(info) 
     });
-
+    document.location.href = "/extra"
     // show number of correct answers out of total
     resultsContainer.innerHTML = `${numCorrect} out of ${questions.length}`;
 }
